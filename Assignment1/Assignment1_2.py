@@ -8,7 +8,6 @@ import re
 import requests
 from bs4 import BeautifulSoup
 
-
 ########## send a GET request to the web page
 url = 'https://www.bbc.com/news/entertainment-arts-60939316'
 response = requests.get(url)
@@ -30,7 +29,6 @@ for paragraph in soup.find_all('div', class_='ssrcss-7uxr49-RichTextContainer e5
 print(headline)
 # print(len(article_text))
 print(article_text)
-
 
 ####### tokenize the text and filter out stop words
 ####### sent_tokenize => splits the article text into sentences.
