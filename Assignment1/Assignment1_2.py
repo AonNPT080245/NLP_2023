@@ -34,7 +34,7 @@ print(article_text)
 ####### sent_tokenize => splits the article text into sentences.
 ####### word_tokenize =>  splits each sentence into words.
 tokens = [word.lower() for sentence in sent_tokenize(article_text) for word in word_tokenize(sentence)] 
-tokens = [token for token in tokens if re.search('^[a-zA-Z]{2,}$', token) and token not in stopwords.words('english')]
+tokens = [token for token in tokens if re.search('^[a-zA-Z]{3,}$', token) and token not in stopwords.words('english')]
 
 # compute the frequency of each token
 # create a frequency distribution of the tokens
@@ -42,7 +42,7 @@ freqD = FreqDist(tokens)
 
 # print the number of sentences and the top 10 most frequent tokens
 print(f"The number of sentences: {len(sent_tokenize(article_text))}")
-for word, frequency in freqD.most_common(10):
+for word, frequency in freqD.most_common(8):
     print(word, frequency)
 
 

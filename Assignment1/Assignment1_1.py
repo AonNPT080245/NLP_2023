@@ -64,15 +64,25 @@ moby = nltk.Text(gutenberg.words('melville-moby_dick.txt'))
 # print(sorted(mylist))
 # print(len(mylist))
 
+# # Test 5.3
+# data5 = []
+# for w in moby:
+#     if(re.search("^\D{4}$",w)):
+#          if(re.search("^\w{4}$",w)):
+#             data5.append(w)
+# mylist = list(dict.fromkeys(data5))
+# print(sorted(mylist))
+# print(len(mylist))
+
 # Item 5
 data5 = []
 for w in moby:
-    if(re.search("^\D{4}$",w)):
-         if(re.search("^\w{4}$",w)):
-            data5.append(w)
+    if(len(w) == 4):
+        data5.append(w)
 mylist = list(dict.fromkeys(data5))
 print(sorted(mylist))
 print(len(mylist))
+
 
 
 
