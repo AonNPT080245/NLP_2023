@@ -14,15 +14,16 @@ dictionary = dictionary.split('\n')
 def correct_word(word):
     new_words = []
     for w in dictionary:
-        distance = nltk.edit_distance(word, w)
+        distance = nltk.edit_distance(word, w,substitution_cost=2)
         # print(f"{word} vs {w}= {distance}")
-        if distance <= 1:
+        if distance <= 2:
             new_words.append(w)
     if len(new_words) == 0:
         return word
     else:
-        new_word = min(new_words, key=lambda w: nltk.edit_distance(word, w))
-        print(f"{word} can be replaced by ('{new_word}',{nltk.edit_distance(word, new_word)})")
+        ##จะเป็นการนำเอาค่าที่เก็บใน new_words มาหาค่า edit_distance อีกรอบเพื่อให้ได้ค่าที่น้อยที่สุด ก่อนส่งออก
+        new_word = min(new_words, key=lambda w: nltk.edit_distance(word, w)) 
+        print(f"{word} can be replaced by ('{new_word}',{nltk.edit_distance(word, new_word,substitution_cost=2)})")
         return new_word
 
 
