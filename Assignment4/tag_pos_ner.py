@@ -8,7 +8,6 @@ with open('text.txt', 'r') as f:
     paragraphs = f.read()
 
 def convert_POS_NER(paragraphs):
-    # Tokenize the paragraph into words
     words = word_tokenize(paragraphs)
     # Perform POS tagging on the words
     pos_tags = pos_tag(words)
